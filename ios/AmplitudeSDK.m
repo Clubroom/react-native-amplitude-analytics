@@ -77,4 +77,10 @@ RCT_EXPORT_METHOD(setUserPropertyOnce:(NSString *)property value:(NSString *)val
      [[Amplitude instance] identify:identify];
 }
 
+RCT_REMAP_METHOD(getSessionId, getSessionIdWithResolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
+{
+    NSNumber *sessionId = @([[Amplitude instance] getSessionId]);
+    resolve(sessionId);
+}
+
 @end
